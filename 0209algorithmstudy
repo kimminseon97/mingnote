@@ -1,0 +1,251 @@
+#연산자 
+
+#include <iostream>
+
+using namespace std;
+
+class INT {
+private:
+	int value;
+
+
+public:
+
+	INT() {}
+	INT(int v) {
+		value = v;
+	}
+	~INT() {}
+	void operator = (int num) {
+		value = num;
+	}
+	void operator= (INT other) {
+		value = other.value;
+	}
+
+	INT operator+(int other) {
+		INT res;
+		// to do something..
+		res.value = value + other;
+		return res;
+	}
+	INT operator-(int other) {
+		INT res;
+		// to do something..
+		res.value = value - other;
+
+		return res;
+	}
+	INT operator*(int other) {
+		INT res;
+		// to do something..
+		res.value = value * other;
+
+		return res;
+	}
+	INT operator/(int other) {
+		INT res;
+		// to do something..
+		res.value = value / other;
+
+		return res;
+	}
+
+	INT operator+(INT other) {
+		INT res;
+		// to do something..
+		res.value = value + other.value;
+
+		return res;
+	}
+	INT operator-(INT other) {
+		INT res;
+		// to do something..
+		res.value = value - other.value;
+
+		return res;
+	}
+	INT operator*(INT other) {
+		INT res;
+		// to do something..
+		res.value = value * other.value;
+
+		return res;
+	}
+	INT operator/(INT other) {
+		INT res;
+		// to do something..
+
+		res.value = value / other.value;
+
+		return res;
+	}
+
+	bool operator==(int other) {
+		if (value == other) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	bool operator==(INT other) {
+		bool result = false;
+		// to do something 
+		if (value == other.value) {
+			result = true;
+			return result;
+		}
+		else {
+			return result;
+		}
+	}
+
+
+	bool operator!=(int other) {
+		bool result = false;
+		// to do something 
+		if (value != other) {
+			result = true;
+			return result;
+		}
+		else {
+			return result;
+
+		}
+	}
+	bool operator!=(INT other) {
+		bool result = false;
+		// to do something 
+		if (value != other.value) {
+			result = true;
+			return result;
+		}
+
+		else {
+			return result;
+		}
+
+	}
+
+	bool operator<(int other) {
+		bool result = false;
+		// to do something 
+		if (value < other) {
+			result = true;
+		}
+
+		else {
+			return result;
+		}
+
+	}
+	bool operator<(INT other) {
+		bool result = false;
+		// to do something 
+		if (value < other.value) {
+			result = true;
+		}
+
+		else {
+			return result;
+		}
+
+	}
+
+	bool operator>(int other) {
+		bool result = false;
+		// to do something 
+		if (value > other) {
+			result = true;
+			return result;
+		}
+		else {
+			return result;
+		}
+	}
+	bool operator>(INT other) {
+		bool result = false;
+		// to do something 
+		if (value > other.value) {
+			result = true;
+			return result;
+		}
+		else {
+			return result;
+		}
+
+
+		return false;
+	}
+
+	int get_value() {
+		return value;
+	}
+};
+
+ostream& operator<<(ostream& ot, INT a) {
+	ot << a.get_value();
+	return ot;
+}
+
+bool TESTCASE() {
+
+	INT a, b;
+	a = 3;
+	b = 4;
+
+	cout << "My Value = " << a + b << "\n";
+	if (a + b == 7) {
+		cout << "TESTCASE 1 ACCEPT\n";
+	}
+	else {
+		cout << "TESTCASE 1 WRONG\n";
+		return false;
+	}
+
+	INT c;
+	c = a + b;
+	cout << "My Value = " << c << "\n";
+	if (c == a + b) {
+		cout << "TESTCASE 2 ACCEPT\n";
+	}
+	else {
+		cout << "TESTCASE 2 WRONG\n";
+		return false;
+	}
+
+	INT d;
+	d = a * b;
+	cout << "My Value = " << d << "\n";
+	if (d == a * b) {
+		cout << "TESTCASE 3 ACCEPT\n";
+	}
+	else {
+		cout << "TESTCASE 3 WRONG\n";
+		return false;
+	}
+
+	INT e;
+	e = d * c + a - b;
+	cout << "My Value = " << e << "\n";
+	if (e / 4 == 20) {
+		cout << "TESTCASE 4 ACCEPT\n";
+	}
+	else {
+		cout << "TESTCASE 4 WRONG\n";
+		return false;
+	}
+	return true;
+}
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+
+	if (TESTCASE()) {
+		cout << "OK\n";
+	}
+	else {
+		cout << "FAIL\n";
+	}
+}
